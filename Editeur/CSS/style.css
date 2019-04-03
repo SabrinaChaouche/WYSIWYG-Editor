@@ -1,0 +1,383 @@
+/* CSS Editeur*/
+#saisie {
+	
+	position:relative;
+	top:0px;
+	padding-top:20px;
+	padding-right:10px;
+	height:529px;
+	overflow-y: auto;
+	padding-left:10px;
+	word-wrap:break-word;
+}
+#code{
+
+	padding-left:20px;
+	padding-top:20px;
+	overflow-y:auto;
+	word-wrap: break-word;
+
+}
+
+.navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+}
+
+.row.content {height: 575px;width:101.1%;}
+    
+.sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+}
+
+@media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+}
+.col-sm-8{
+    	padding:0px;
+    	height:529px;
+ }
+    
+ .navbar-nav{
+    	margin-left:2.8%;
+ }
+ #fct {
+    	position:relative;
+    	top:0px;
+    	height:45px;
+    	background-color:#E8E8E8;
+    	width:
+ }
+    
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0px;
+    left: 100%;
+    margin-top: -1px;
+ }
+
+ #BtnCode{
+   	position:absolute;
+   	right:20%;
+   	bottom:25px;
+   	width:150px;
+ }
+ #BtnEd{
+   	position:absolute;
+   	right:20%;
+   	bottom:25px;
+   	width:150px;
+ }
+ #Enregistrer{
+   	position:absolute;
+   	right:45px;
+    bottom:80px;
+   	width:150px;
+ }
+ /* Barre d'outils */
+ #fct button{
+   	border:none;
+   	background-color:#E8E8E8;
+   	width:30px;
+   	height:30px;
+ }
+#fct button:hover{
+   	background-color:#f8f8f8;
+}
+#fct div{	
+   	display:inline;
+}
+   
+button.fa{
+   	border:none;
+}
+
+
+.sidenav{
+	background-image:url(../CodeD.PNG);
+	background-repeat:no-repeat;
+	padding:0px;
+	width:  16.66666667%;
+	height:100%;
+}
+/*CSS modals*/
+.modal-header,.modal-header h4, .close {
+      background-color:#2f2f2f;;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+}
+.modal-footer {
+      background-color: #f9f9f9;
+}
+.modal-dialog{
+	top:100px;
+}
+
+#modal13 div.modal-header{
+	background-color:#8db0f2;
+	height:55px;	
+}
+ 
+#modal13 .modal-content{
+	border:5px #8db0f2 solid
+}
+#accueil{
+	width:65%;
+	position:relative;
+	left:310px;
+	height:1200px;
+	background-color:#f5f5f5;
+	padding:10px;
+	overflow-y: auto;
+
+}
+#sections{
+	width:35%;
+	position:relative;
+	top:-1200px;
+	left:0px;
+	background-color:#f5f5f5;
+	height:1200px;
+	padding:10px;
+}
+#modal14 .modal-dialog{
+	
+	top:50px;
+	left:-8px;
+	
+}
+#modal14 .modal-content{
+	height:1300px;
+}
+/*CSS sections*/
+.entete-section{
+	 display:inline-block;
+	 width:100%;
+	 height:35px;
+	 margin:auto; 
+	 margin-bottom:0px;
+	 background-repeat:no-repeat;
+	 border-bottom:dashed 1px blue;
+	 font-size:25px;
+	 font-family: "Times New Roman", Helvetica, serif;
+}
+
+.text-section{	
+	 width:100%;
+	 height:100%;
+	 margin:auto;
+	 background-color:#f5f5f5;
+	 overflow-y:auto;
+	 word-wrap: break-word;
+	 font-family: "Times New Roman"	 font-size:14px;
+	 color:black; 
+}
+
+.section{
+	width:98%; 
+	height:80px;
+	border:1px blue dashed;
+}
+
+/*css tabs*/
+
+.css-tabs{
+	width:98%;
+	height:100px;
+}
+
+
+.css-entete-tab{
+	display:inline-block;
+	padding:0px;
+	border:none;
+	margin:0px;
+	cursor:pointer;
+	background:#ffffff;
+	width:100px;
+	height:40px;
+	border-radius:5px 5px 0 0;
+	text-align:center;
+	font-weight:bold;
+	color:#385c5b;
+    box-shadow: 2px 0 0px rgba(0,0,0,0.1), -2px 0 2px rgba(0,0,0,0.1);
+    position:relative;
+  }
+
+.entete-tab div{
+	margin-top:10px;
+}
+.css-contenu-tab{
+	width:98%;
+	height:80%;
+	position:absolute;
+	margin-top:0px;
+	top:0px;
+	box-shadow: 2px 0 2px rgba(0,0,0,0.1), -2px 0 2px rgba(0,0,0,0.1);
+	padding-top:10px;
+	padding-left:10px;
+}
+.anim-tab{
+	width:98.2%;
+	height:10px;
+	top:10px;
+	background: #ffffff;
+	margin-bottom:0px;
+	clear: both;
+	margin-top: -10px;
+	z-index:0;
+	position:relative;
+    box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2);
+    border-radius: 3px;	
+}
+
+/*CSS Tableau*/
+.wp-caption{
+	border:1px solid #ddd;
+	vertical-align:middle;
+	background-color:#f3f3f3;
+	padding:5px;
+	margin:5px;
+	-moz-border-radius:3px;
+	-khtml-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+
+.wp-caption p.wp-caption-text{
+	font-size:0.9em;
+	line-height:17px;
+	padding:0 4px 5px;
+	margin:0;
+}
+/*CSS Ruban*/
+#fond {
+	position: relative;
+	width: 95%;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+	height: 110px;
+}
+.ruban {
+	background: #b1c70d;
+	height: 60px;
+	width: 95%;
+	position: relative;
+	left:20px;
+	top: 0px;
+	float: left;
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.55);                                                                                                           
+	margin:auto;
+}
+.ruban h2 {
+	font-size: 25px;
+	color: #fff;
+	width:100%;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+	text-align: center;
+	margin: 10px;
+}
+.ruban_gauche {
+	border-color: transparent #7e9202 transparent transparent;
+	border-style: solid;
+	border-width: 15px;
+	height: 0px;
+	width: 0px;
+	position: relative;
+	left: -15px;
+	top: -3px;
+	z-index: -1;
+	margin:0px;
+}
+.ruban_droit {
+	border-color: transparent transparent transparent #7e9202;
+	border-style: solid;
+	border-width: 15px;
+	height: 0px;
+	width: 0px;
+	position: relative;
+	left: 98%;
+	top: -32px;
+	z-index: -1;
+}
+
+/*CSS slides*/
+.slid img{
+    position: absolute;
+    width: 650px;
+    height: 440px;
+    top:0px;
+    display:block; 
+}
+.slid div{
+    text-align:center;
+    display:inline-block; 
+    padding:5px;
+    margin-top:420px;
+}
+.slid{
+    //border:1px solid black;
+    padding:0px;
+    margin: auto;
+    position: relative;
+    width:650px;
+    height:470px;
+    overflow: hidden;
+}
+.prev a, .next a{
+    color:black; 
+    border-radius: 0 0 0 0px;
+    border: 0px;
+    text-decoration:none;
+    opacity: 1;    
+}
+div.prev:hover ,div.next:hover{
+    background-color: #D2D7DF;
+    opacity: 0.8;
+}
+.slid .prev{
+    position:absolute;
+    left:0px;  
+}
+.slid .next{
+    position:absolute;
+    right:0px;
+}
+/*CSS colonnes*/
+.colonne{
+    position:relative;
+    width:100%;
+    height:auto;
+    padding:0px;
+}
+
+.colonne table {
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+.colonne tbody {
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+.colonne td{
+    padding:8px;
+    border-left:2px solid white;
+    margin:0px;
+    height:30px; 
+    background-color:#f5f5f5; 
+}
+.picture td{
+	border-left:0px;
+}

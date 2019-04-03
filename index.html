@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Editeur DANYA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Editeur/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Editeur/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="Editeur/font-awesome-4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="Editeur/CSS/style.css">
+  <link rel="stylesheet" href="Editeur/CSS/jquery-ui.css">
+  
+
+</head>
+<body>
+<!--Navebar-->
+<!----------------------------------------------Modals-------------------------------------------------------------->
+<!-- Modal1 Tabs-->
+  <div class="modal fade" id="modal1" tabindex="-1" "dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4> Créer Des Tabs </h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+             <label for="nbrTabs">Nombre De Tabs</label>
+             <input class="form-control" id="nbrTabs" type="number" max="8" min="2" value="3" data-placement="top" data-trigger="manual">
+            </div>
+            <div class="form-group">
+  			  <label><input id="tabs1-input" type="radio" name="tabs" >Inserer des tabs simples</label><br>
+  			  <label><input id="tabs2-input" type="radio" name="tabs" >Inserer des tabs animés</label>
+			</div>
+		 </form>
+        </div>
+        <div class="modal-footer"">
+          <button  id="okTabs" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulTabs" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+ 
+  <!-- Modal2 Tableau -->
+  <div class="modal fade" id="modal2" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4> Insérer Un Tableau </h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+            <label for="lig">Nombre De Lignes </label>
+            <input class="form-control" id="lig" type="number" value="1" min="1" required>
+            <label for="col">Nombre De Colonnes </label>
+            <input class="form-control" id="col" type="number" value="1" min="1" required><br/>
+            <input type="button" value="Définir la largeur des colonnes" id="larCol" class="btn btn-default btn-block"/>
+            </div>
+          </form>
+          <form role="form">
+            <div id="divCol" class="form-group">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer"">
+          <button id="okTab" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulerTab" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+   <!-- Modal3 Images -->
+  <div class="modal fade" id="modal3" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Insérer Une Image</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="photo">Selectionner L'image </label>
+              <input id="photo" type="file" accept="images/*"/>
+            </div>
+          </form>
+            <form role="form">
+          	<div class="form-group">
+          		<label for="Largeur">Largeur De L'image</label>
+  				<input type="number" class="form-control" min="50" max="2000" value="500" id="Largeur" data-placement="top" data-trigger="manual">	
+          	</div>
+          	</form>
+          	<form role="form">
+          	<div class="form-group">
+          		<label for="Longueur">Longueur De L'image</label>
+  				<input type="number" class="form-control" min="50" max="2000" value="400" id="Longueur" data-placement="top" data-trigger="manual">	
+          	</div>
+          	</form>
+          	<form role="form">
+            <div class="form-group">
+              <label for="Légende">Légende De L'image</label>
+              <input type="text" class="form-control" id="Légende" value="" placeholder="La légende à afficher" data-placement="top" data-trigger="manual" >
+            </div>
+          	</form>
+            <div class="form-group">
+               <label for="Position">Position De L'Image</label>
+               <select class="form-control" id="position">
+               	<option value="right">A droite</option>
+               	<option value="center">Au centre</option>
+               	<option value="left">A gauche</option>
+               </select>
+			</div>
+		 </form>
+        </div>
+        <div class="modal-footer"">
+          <button  id="okImage" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulImage" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>   
+  
+  <!-- Modal4 Fichier -->
+  <div class="modal fade" id="modal4" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4> Télécharger Un Fichier </h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="nomfich">Nom Du Fichier</label> 
+              <input class="form-control" id="nomfich" type="text" placeholder="Nom du fichier">   
+              
+            </div>
+            <div class="form-group">
+  			  <label><input id="liens" type="radio" name="fichier" value="liens" /> Lien Externe</label><br/>
+              <label><input id="local" type="radio" name="fichier" value="local" /> Fichier Local</label>
+			</div>
+			<div class="form-group">
+  			  <div id="choix"></div>
+			</div>
+		 </form>
+        </div>
+        <div class="modal-footer"">
+          <button  id="okFich" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulFich" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  
+  
+  <!-- Modal5 Posts-->
+  <div class="modal fade" id="modal5" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4> Insérer Des Posts</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+               <label for="title">Titre De L'Article</label><br/>
+               <input class="form-control" id="title" type="text" placeholder="Titre de l'article"required/>
+            </div>
+          </form>
+          <form role="form">
+            <div class="form-group">
+  			   <label for="post">Nombre De Posts à Inserer</label>
+               <input class="form-control"id="post" type="number" value="1" min="1" required/>
+            </div>
+          </form>
+          <form role="form">
+               <input type="button" value="Importer les images" id="choixPost" class="btn btn-default btn-block"><br/>
+		  </form>
+		  <form role="form">
+            <div id="divPost" class="form-group">
+            </div>
+          </form>
+		  </form>
+        </div>
+        <div class="modal-footer"">
+          <button  id="okPost" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulPost" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  <!-- Modal6 IFrames-->
+  <div class="modal fade" id="modal6" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Insérer Une IFrame</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="video2">L'URL De La Page </label>
+              <input type="url" class="form-control" id="video2" value="" placeholder="L'url de la page" data-placement="top" data-trigger="manual">
+            </div>
+          <form role="form">
+          	<div class="form-group">
+          	<label for="width2">Largeur De L'IFrame</label>
+  			<input type="number" class="form-control" min="300" max="1000" id="width2" value="640" data-placement="top" data-trigger="manual">	
+          	</div>
+          </form>
+          <form role="form">
+          	<div class="form-group">
+          	<label for="height2">Longueur De L'IFrame</label>
+  			<input type="number" class="form-control" min="200" max="800" id="height2" value="360" data-placement="top" data-trigger="manual">	
+          	</div>
+          </form>
+            <div class="form-group">
+              <label for="legend2">Légende De L'IFrame</label>
+              <input type="text" class="form-control" id="legend2" value="" placeholder="La légende à afficher" data-placement="top" data-trigger="manual" >
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer"">
+          <button  id="okIframe" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulIframe" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+   <!-- Modal7 Youtube-->
+ <div class="modal fade" id="modal7" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Insérer Une Vidéo YouTube</h4>
+        </div>
+        <div class="modal-body">
+           <form role="form">
+            <div class="form-group">
+              <label for="video3">L'URL De La Page </label>
+              <input type="url" class="form-control" id="video3" value="" placeholder="L'url de la page" data-placement="top" data-trigger="manual">
+            </div>
+           </form>
+            <form role="form">
+          	<div class="form-group">
+          	<label for="width3">Largeur De La Vidéo</label>
+  			<input type="number" class="form-control" min="300" max="1000" id="width3" value="640" data-placement="top" data-trigger="manual">	
+          	</div>
+           </form>
+          <form role="form">
+          	<div class="form-group">
+          	<label for="height3">Longueur De La Vidéo</label>
+  			<input type="number" class="form-control" min="200" max="800" id="height3" value="360" data-placement="top" data-trigger="manual">	
+          	</div>
+          </form>
+          <form role="form">
+            <div class="form-group">
+              <label for="legend3">Légende De La Vidéo</label>
+              <input type="text" class="form-control" id="legend3" value="" placeholder="La légende à afficher" data-placement="top" data-trigger="manual" >
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer"">
+          <button  id="okYoutube" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulYoutube" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- modal8 liens web-->
+<div class="modal fade" id="modal8" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Insérer Un Lien Web</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <form role="form">
+              <div class="form-group">
+               <label for="link1">L'URL </label>
+               <input type="url" class="form-control" id="link1" value="" placeholder="L'URL de la page web" data-placement="top" data-trigger="manual">
+              </div>
+              <div class="form-group">
+               <label for="text1">Texte à Afficher</label>
+               <input type="text" class="form-control" id="text1" value="" placeholder="Le texte à afficher" data-placement="top" data-trigger="manual" >
+              </div>
+          </form>
+        </div>
+       </div>
+        <div class="modal-footer"">
+          <button  id="okLienWeb" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulLienWeb" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- modal9 liens internes -->
+<div class="modal fade" id="modal9" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Insérer Un Lien Interne</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="link2">Le Nom De La Page </label>
+              <input type="url" class="form-control" id="link2" value="" placeholder="Le nom de la page" data-placement="top" data-trigger="manual">
+            </div>
+            <div class="form-group">
+  			  <label for="selection5">Type De La Page</label>
+  				<select class="form-control" id="selection5">
+    				<option id="option1">html</option>
+    				<option id="option2">htm</option>
+    				
+  				</select>
+			</div>
+            <div class="form-group">
+              <label for="text2">Texte à Afficher</label>
+              <input type="text" class="form-control" id="text2" value="" placeholder="Le texte à afficher" data-placement="top" data-trigger="manual" >
+            </div>
+          </form>
+       </div>
+        <div class="modal-footer"">
+          <button  id="okLienInterne" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulLienInterne" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- modal10 Signets -->
+<div class="modal fade" id="modal10" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Insérer Un Signet</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="text3">Texte à Afficher </label>
+              <input type="text" class="form-control" id="text3" value="" placeholder="Le texte à afficher ex. Ici" data-placement="top" data-trigger="manual">
+            </div>
+          </form>
+          <p>Maintenant un double-clique sur le paragraphe pour lequel vous voulez insérer le signet! </p>
+       </div>
+       <div class="modal-footer"">
+          <button  id="okSignet" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulSignet" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- Modal11 Slides-->
+  <div class="modal fade" id="modal11" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4> Inserer des slides</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+               <label >Nombre de slides a inserer:</label>
+               <input id="nbrSlide" type="number" value="2" min="1" required/><br/><br/>
+               <input type="button" value="Importer les images" id="validSlide" class="btn btn-default btn-block"></button>
+            </div>
+			<form role="form">
+             <div id="insSlide"></div>
+            </form>
+		  </form>
+        </div>
+        <div class="modal-footer"">
+          <button  id="okSlide" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulSlide" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  <!-- modal12 Disposer en colonnes -->
+<div class="modal fade" id="modal12" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Disposer en colonnes</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+               <label >Nombre de colonnes a inserer </label><br/>
+               <input id="nbrColonne" type="number" value="2" min="2" style="margin-top: 5px; margin-bottom: 10px;" required/>
+            </div>
+          </form>
+       </div>
+       <div class="modal-footer"">
+          <button  id="okColonne" type="button" class="btn btn-info btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check fa-lg"></i> OK</button>
+          <button id="annulColonne" type="button" class="btn btn-default btn-md" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg"></i> Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- modal13 A propos -->
+<div class="modal fade" id="modal13" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+              
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          A propos
+        </div>
+        <div class="modal-body">
+        	<h4>Editeur d'articles WYSIWYG pour DANYA version 1.</h4>   <br/> 
+          
+	    Cet éditeur a été conçu pour faciliter la création d'articles pour sites web conçus sur la plate-forme DANYA.<br/><br/>
+	    L'éditeur est conçu avec le principe du wysiwyg (what you see is what you get) et a pour principaux objectifs la création graphique des éléments d'un article (titre, slides, tableaux, images, vidéos …) et la traduction du rendu graphique vers le langage D.(voire Guide de création des articles avec le langage D.pdf)
+	 
+         
+       </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- modal14 Aide -->
+<div class="modal fade" id="modal14" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+              
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          Aide
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+                <div id="accueil">
+                </div>
+              <div id="sections"><img src="Editeur/help.png" style="margin-left:70px"/><br/>
+              	<a href="#" id="par"><i class="fa fa-plus-circle"></i>  Insertion d'un paragraphe</a><br/>
+              	<a href="#" id="rub"><i class="fa fa-plus-circle"></i>  Insertion d'un ruban </a> <br/>
+              	<a href="#" id="tit"><i class="fa fa-plus-circle"></i>  Insertion de titres </a> <br/>
+              	<a href="#" id="lst"><i class="fa fa-plus-circle"></i>  Insertion de Listes a puces ou numérotées</a><br/>
+              	<a href="#" id="F"><i class="fa fa-plus-circle"></i>   Mettre en forme le texte </a><br/>
+              	<a href="#" id="Ps"><i class="fa fa-plus-circle"></i>  Positionner le texte</a><br/>
+              	<a href="#" id="tbl"><i class="fa fa-plus-circle"></i>  Ajouter des tableaux </a><br/>
+              	<a href="#" id="mg"><i class="fa fa-plus-circle"></i>  Ajouter des images </a><br/>
+              	<a href="#" id="lkIn"><i class="fa fa-plus-circle"></i>  Liens internes </a><br/>
+              	<a href="#" id="lkEx"><i class="fa fa-plus-circle"></i>  Lien externe </a><br/>
+              	<a href="#" id="Sg"><i class="fa fa-plus-circle"></i>  Signet</a><br/>
+              	<a href="#" id="vd"><i class="fa fa-plus-circle"></i>  iframe et Youtube</a><br/>
+              	<a href="#" id="fc"><i class="fa fa-plus-circle"></i>  Télécharger des fichiers</a><br/>
+              	<a href="#" id="pstA"><i class="fa fa-plus-circle"></i>  Insertion de posts</a><br/>
+                <a href="#" id="sec"><i class="fa fa-plus-circle"></i>  Création de sections personnalisées</a><br/>
+              	<a href="#" id="sld"><i class="fa fa-plus-circle"></i>   Création de slides </a><br/>
+              	<a href="#" id="tabA"><i class="fa fa-plus-circle"></i>  Création de Tabs</a><br/>
+              	<a href="#" id="D"><i class="fa fa-plus-circle"></i>  Langage D </a>
+              </div>
+           </div>   
+		  </form>
+       </div>
+      </div>
+    </div>
+  </div>
+<!------------------------------------------------------------------------------------------------------------------>
+<nav class="navbar navbar-inverse " role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="acceuil.html"><i class="fa fa-home fa-lg" style="margin-left:50px;"></i><h4><b>EDITEUR DANYA</b></h4></a>
+    </div><br></br>
+    <ul class="nav navbar-nav">
+    	
+    	 <!--Edition-->
+      <li class="dropdown" id="navEd"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>EDITION</b><span class="caret"></span></a>
+      	<ul class="dropdown-menu">
+      		<li><a href="#" onclick="commande('undo')"><i class="fa fa-rotate-left"></i>  Annuler</a></li>
+      		<li><a href="#" onclick="commande('redo')"><i class="fa fa-rotate-right"></i>  Rétablir</a></li>
+      		<li><a href="#" onclick="commande('copy')"><i class="fa fa-copy"></i>  Copier</a></li>
+      		<li><a href="#" onclick="commande('past')"><i class="fa fa-paste"></i>  Coller</a></li>
+      		<li><a href="#" onclick="commande('cut')"><i class="fa fa-cut"></i>  Couper</a></li>
+      	</ul>
+      </li>
+      
+       <!--Format-->
+      <li class="dropdown" id="navFr"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>FORMAT</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" >
+          <li><a href="#" onclick="commande('bold')"><b>G</b>   Gras</a></li>
+          <li><a href="#" onclick="commande('italic')"><i>I</i>    Italique</a></li>
+          <li><a href="#" onclick="commande('underline')"><i style="text-decoration:underline;">S</i>   Souligné</a></li>
+          <li><a href="#" onclick="insert_paragraph()"><b>P</b>   Paragraphe</a></li>
+          <li role="presentation" class="divider"></li> 
+          <li class="dropdown-submenu">
+                <a href="#" class="menu"><i class="fa fa-align-left"></i>  Position du texte<i class="fa fa-caret-right" style="margin-left:20%"></i></a>
+                <ul class="dropdown-menu">
+                 <li><a href="#" onclick="commande('justifyLeft')"><i class="fa fa-align-left"></i>  Aligner à gauche</a></li>
+                 <li><a href="#" onclick="commande('justifyRight')"><i class="fa fa-align-right"></i>  Aligner à droite</a></li>
+                 <li><a href="#" onclick="commande('justifyCenter')"><i class="fa fa-align-center"></i>  Centrer</a></li>
+                 <li><a href="#" onclick="commande('justifyFull')"><i class="fa fa-align-justify"></i>  Justifier</a></li>
+                </ul>
+          </li>
+          </li>
+          
+          <li role="presentation" class="divider"></li>
+             <li class="dropdown-submenu">
+                <a href="#" class="menu"><i class="fa fa-list"></i>  Puces et Numéros<i class="fa fa-caret-right" style="margin-left:11%"></i></a>
+                <ul class="dropdown-menu">
+                 <li><a href="#" onclick="Ins_List_num()"><i class="fa fa-list-ol"></i>  Liste numérotée</a></li>
+                 <li><a href="#" onclick="Ins_List_puces()"><i class="fa fa-list-ul"></i>  Liste à puces</a></li>
+                </ul>
+          </li>
+          </li>
+          
+          <li role="presentation" class="divider"></li>
+             <li class="dropdown-submenu">
+                <a href="#" class="menu">T    Titres<i class="fa fa-caret-right" style="margin-left:67%"></i></a>
+                <ul class="dropdown-menu">
+                 <li><a href="#" onclick="Ins_ruban()"><h2>Titre Ruban</h2></a></li>
+                 <li><a href="#" onclick="titre1();"><h3>Titre Niveau1</h3></a></li>
+                 <li><a href="#" onclick="titre2();"><h4>Titre Niveau2</h4></a></li>
+                 <li><a href="#" onclick="titre3();"><h5>Titre Niveau3</h5></a></li>
+                </ul>
+          </li>
+          </li>
+          <li role="presentation" class="divider"></li>
+          <li><a href="#" class="colon" data-toggle="modal" data-target="#modal12"><i class="fa fa-columns"></i>  Disposer en colonnes</a></li>
+        </ul>
+      </li>
+      
+      
+      
+       <!--Insertion-->
+      
+      <li class="dropdown" id="navIns"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>INSERTION</b><span class="caret"></span></a>
+      	<ul class="dropdown-menu">
+      		<li><a class="image" href="#" data-toggle="modal" data-target="#modal3"><i class="fa fa-image"></i>  Image</a></li>
+      		<li><a href="#" class="tabl" data-toggle="modal" data-target="#modal2"><i class="fa fa-table"></i>  Tableau</a></li>
+      		<li role="presentation" class="divider"></li>
+      		<li class="dropdown-submenu">
+                <a href="#" class="menu"><i class="fa fa-link"></i>  Lien<i class="fa fa-caret-right" style="margin-left:70%"></i></a>
+                <ul class="dropdown-menu">
+                 <li><a class="lienIn" href="#" data-toggle="modal" data-target="#modal9"><i class="fa fa-link"></i>   Lien interne</a></li>
+                 <li><a class="lienweb" href="#" data-toggle="modal" data-target="#modal8"><i class="fa fa-external-link"></i>  Lien externe</a></li>
+                 <li><a class="signet" href="#" data-toggle="modal" data-target="#modal10"><i class="fa fa-bookmark"></i>  Signet</a></li>
+                </ul>
+                <li role="presentation" class="divider"></li>
+            </li>
+      		<li><a class="youtube" href="#" data-toggle="modal" data-target="#modal7"><i class="fa fa-youtube"></i>  Youtube</a></li>
+      		<li><a class="iframe" href="#" data-toggle="modal" data-target="#modal6"><i class="fa fa-video-camera"></i>  IFrame</a></li>
+      		<li><a class="fichier" href="#" data-toggle="modal" data-target="#modal4"><i class="fa fa-file-o"></i>  Fichier</a></li>
+      		<li><a class="posts" href="#" data-toggle="modal" data-target="#modal5"><i class="fa fa-square-o"></i>  Posts</a></li>
+      	</ul>
+      </li>
+      
+       <!--Creation-->
+       
+      <li class="dropdown" id="navCre"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>CREATION</b><span class="caret"></a>
+      	<ul class="dropdown-menu">
+      		<li role="presentation" class="dropdown-header">Sections</li>
+      		<li role="presentation" class="divider"></li>
+      		<li><a href="#" onclick="insert_def()"><i class="fa fa-book"></i>  Définition</a></li>
+      		<li><a href="#" onclick="insert_regle()"><i class="fa fa-gavel"></i>  Régle</a></li>
+      		<li><a href="#" onclick="insert_obs()"><i class="fa fa-search"></i>  Observation</a></li>
+      		<li><a href="#" onclick="insert_alert()"><i class="fa fa-warning"></i>  Alerte</a></li>
+      		<li><a href="#" onclick="insert_note()"><i class="fa fa-pencil-square-o"></i>  Note</a></li>
+      		<li><a href="#" onclick="insert_form()"><i class="fa fa-credit-card"></i>  Forme</a></li>
+      		<li role="presentation" class="divider"></li>
+      		<li><a href="#" class="slide" data-toggle="modal" data-target="#modal11" ><i class="fa fa-caret-square-o-right"></i>  Slides</a></li>
+      		<li><a class="tabs" href="#" data-toggle="modal" data-target="#modal1"><i class="fa fa-folder-o"></i>Tabs</a></li>
+      	</ul>
+      </li>
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-question-circle fa-lg"></i></a>
+      	<ul class="dropdown-menu">
+      		<li><a id="aide" href="#" data-toggle="modal" data-target="#modal14" onclick="modal14.modal()"><i class="fa fa-question-circle"></i>   Aide</a></li>
+      		<li><a href="#" data-toggle="modal" data-target="#modal13" onclick="modal13.modal()"><i class="fa fa-comment-o"></i>   A propos</a></li>
+      	</ul>
+      </li> 
+    </ul>
+  </div>
+</nav>
+
+<!-- Editeur -->
+ <div class="editeur" class="container-fluid text-center">    
+    <div class="row content">
+    <div class="col-sm-2 sidenav">   
+    </div>
+    <div class="col-sm-8 text-left">
+    	<!-- barre d'icones -->
+       <div id="fct">
+       	<div style="border-right:1px solid 	#A9A9A9;">
+       		<button data-toggle="tooltip" title="Annuler" data-placement="bottom" onclick="commande('undo')"><i class="fa fa-rotate-left fa-lg" style="color:blue"></i></button>
+       		<button data-toggle="tooltip" title="Rétablir" data-placement="bottom" onclick="commande('redo')"><i class="fa fa-rotate-right fa-lg" style="color:blue"></i></button>
+       	</div>
+       	<div style="border-right:1px solid 	#A9A9A9;">
+       		<button data-toggle="tooltip" title="Gras" data-placement="bottom" onclick="commande('bold')"><h4><b>G</b></h4></button>
+       		<button data-toggle="tooltip" title="Italique" data-placement="bottom" onclick="commande('italic')"><h4><i>I</i></h4></button>
+       		<button data-toggle="tooltip" title="Souligné" data-placement="bottom" onclick="commande('underline')"><h4 style="text-decoration:underline">S</h4></button>
+       		
+       	</div>
+        <div style="border-right:1px solid 	#A9A9A9;">
+       	<input data-toggle="tooltip" title="Couleur du texte" data-placement="bottom" type="color" id="couleur" onchange="couleur();" style="margin:5px"/>
+       	<select data-toggle="tooltip" title="Taille du texte" data-placement="bottom" name="Taille" id="Taille" onchange="TailChx(this);" style="margin-right:5px">
+             <option value="1">1</option>
+             <option value="2" selected>2</option>
+             <option value="3">3</option>
+             <option value="4">4</option>
+             <option value="5">5</option>
+             <option value="6">6</option>
+             <option value="7">7</option>
+        </select>
+       	</div>
+       	<div style="border-right:1px solid 	#A9A9A9;">
+       		<button data-toggle="tooltip" title="Inserer un paragraphe" data-placement="bottom" onclick="insert_paragraph()"><h4>P</h4></button>  		
+       	</div>
+       	<div style="border-right:1px solid 	#A9A9A9;">
+       		<button data-toggle="tooltip" title="Aligner à gauche" data-placement="bottom" onclick="commande('justifyLeft')"><i class="fa fa-align-left fa-lg"></i></button> 
+       		<button data-toggle="tooltip" title="Aligner à droite" data-placement="bottom" onclick="commande('justifyRight')"><i class="fa fa-align-right fa-lg"></i></button>
+       		<button data-toggle="tooltip" title="Centrer" data-placement="bottom" onclick="commande('justifyCenter')"><i class="fa fa-align-center fa-lg"></i></button> 
+       		<button data-toggle="tooltip" title="Justifier" data-placement="bottom" onclick="commande('justifyFull')"><i class="fa fa-align-justify fa-lg"></i></button>   		
+       	</div>
+       	<div style="border-right:1px solid 	#A9A9A9;">
+       		<button data-toggle="tooltip" title="Inserer une liste numérotée" data-placement="bottom" onclick="Ins_List_num()"><i class="fa fa-list-ol fa-lg"></i></button> 
+       		<button data-toggle="tooltip" title="Inserer une liste à puces" data-placement="bottom" onclick="Ins_List_puces()"><i class="fa fa-list-ul fa-lg"></i></button> 		
+       	</div>
+       	<div data-toggle="tooltip" title="Inserer un titre" data-placement="bottom" style="border-right:1px solid 	#A9A9A9;">
+       		<button  data-toggle="dropdown" class="dropdown-toggle"><h4>T</h4></span></button>
+       		<ul role="menu" class="dropdown-menu" style="top:30px;left:59%;margin-top:-1px;">
+             <li><a href="#" onclick="Ins_ruban()"><h2>Titre Ruban</h2></a></li>
+             <li><a href="#" onclick="titre1();"><h3>Titre Niveau1</h3></a></li>
+             <li><a href="#" onclick="titre2();"><h4>Titre Niveau2</h4></a></li>
+             <li><a href="#" onclick="titre3();"><h5>Titre Niveau3</h5></a></li>
+            </ul>		
+       	</div>
+       	<div style="border-right:1px solid 	#A9A9A9;">
+       		<button class="colon"data-toggle="modal" data-target="#modal12" data-toggle="tooltip" title="Disposer en colonnes" data-placement="bottom"><i class="fa fa-columns fa-lg"></i></button>
+       		<button class="tabl" data-toggle="modal" data-target="#modal2" data-toggle="tooltip" title="Inserer un tableau" data-placement="bottom"><i class="fa fa-table fa-lg"></i></button> 		
+       	</div>
+       	<div>
+       		<button class="lienweb" data-toggle="modal" data-target="#modal8" data-toggle="tooltip" title="Inserer un lien web" data-placement="bottom"><i class="fa fa-link fa-lg"></i></button> 
+       		<button class="signet" data-toggle="modal" data-target="#modal10" data-toggle="tooltip" title="Inserer un signet" data-placement="bottom"><i class="fa fa-bookmark fa-lg"></i></button>  			
+       		<button class="image" data-toggle="modal" data-target="#modal3" data-toggle="tooltip" title="Inserer une image" data-placement="bottom"><i class="fa fa-image fa-lg"></i></button>
+       		<button class="youtube" data-toggle="modal" data-target="#modal7"  data-toggle="tooltip" title="Inserer une vidéo Youtube" data-placement="bottom"><i class="fa fa-youtube-square fa-lg" ></i></button>  		
+       	</div>
+       </div>
+    <!--saisie-->   
+    <div contenteditable="true" id="saisie"></div> 
+    </div>
+    <div class="col-sm-2 sidenav">
+      <button id="BtnCode" type="submit" class="btn btn-lg btn-info" onclick="conversion()"><b> -[ ] Code D</b></button>
+    </div>
+  </div>
+</div>	
+</footer>
+
+<div class="codeDanya" class="container-fluid text-center">    
+    <div class="row content">
+    <div class="col-sm-2 sidenav" class="img"> 
+    	
+    </div>
+    <div class="col-sm-8 text-left" id="code" contenteditable="false">
+    </div>
+    <div class="col-sm-2 sidenav" class="img">	
+    	<button id="Enregistrer" type="submit" class="btn btn-lg btn-default"><i class="fa fa-floppy-o fa-lg"></i><b>  Enregistrer</b></button>  
+	    <button id="BtnEd" type="submit" class="btn btn-lg btn-info"><i class="fa fa-pencil fa-lg"></i><b>  Editeur</b></button>
+    </div>
+  </div>
+</div>
+</footer>
+
+
+
+ <script src="Editeur/Script/jquery-1.12.0.js"></script>
+ <script src="Editeur/Script/jquery-ui.js"></script>
+ <script src="Editeur/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+ <script src="Editeur/Script/script.js"></script>
+ <script src="Editeur/Script/Aide.js"></script>
+ <script src="Editeur/Script/conversion.js"></script>
+</body>
+</html>
